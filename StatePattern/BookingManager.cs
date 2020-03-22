@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using designPatterns.StatePattern.Base;
 using designPatterns.StatePattern.BookingStateImplementation;
 
@@ -12,24 +13,30 @@ namespace designPatterns.StatePattern
         {
             _booking = new Booking();
             _stateManager = new StateManager(
-                new NewState(),
                _booking
-                );
+            );
         }
 
-        public void SubmitDetails(string attendee, int ticketCount)
+        public Booking Booking => _booking;
+        
+        public async Task Create()
         {
-            _stateManager.EnterDetails(attendee, ticketCount);
+            await _stateManager.Init(new NewState());
         }
 
-        public void Cancel()
+        public async Task SubmitDetails(string attendee, int ticketCount)
         {
-            _stateManager.Cancel();
+            await _stateManager.EnterDetails(attendee, ticketCount);
         }
 
-        public void DatePassed()
+        public async Task Cancel()
         {
-            _stateManager.DatePassed();
+            await _stateManager.Cancel();
+        }
+
+        public async Task DatePassed()
+        {
+            await _stateManager.DatePassed();
         }
     }
         

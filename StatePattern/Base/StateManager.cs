@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace designPatterns.StatePattern.Base
 {
     public class StateManager
@@ -5,29 +7,34 @@ namespace designPatterns.StatePattern.Base
         private BaseState _state;
         private Booking _context;
 
-        public StateManager(BaseState initialState, Booking booking) {
+        public StateManager(Booking booking) {
             _context = booking;
-            TransitionToState(initialState);
+        }
+
+        public async Task Init(BaseState state) 
+        {
+            _state = state;
+            await TransitionToState(state);
         }
 
         protected internal Booking Booking => _context;
 
-        public void TransitionToState(BaseState state) {
+        public async Task TransitionToState(BaseState state) {
             _state = state;
-            _state.InitState(this);
+            await _state.InitState(this);
         }
 
-        public void Cancel()
+        public async Task Cancel()
         {
-            _state.Cancel(this);
+            await _state.Cancel(this);
         }
-        public void DatePassed()
+        public async Task DatePassed()
         {   
-            _state.DatePassed(this);
+            await _state.DatePassed(this);
         }
-        public void EnterDetails(string attendee, int ticketCount)
+        public async Task EnterDetails(string attendee, int ticketCount)
         {
-            _state.EnterDetails(this, attendee, ticketCount);
+            await _state.EnterDetails(this, attendee, ticketCount);
         }
     }
 }

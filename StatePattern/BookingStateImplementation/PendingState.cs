@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using designPatterns.StatePattern.Base;
 
 namespace designPatterns.StatePattern.BookingStateImplementation
@@ -8,39 +9,40 @@ namespace designPatterns.StatePattern.BookingStateImplementation
     {
         CancellationTokenSource cancelToken;
 
-        public override void Cancel(StateManager _stateManager)
+        public async override Task Cancel(StateManager _stateManager)
         {
             cancelToken.Cancel();
         }
 
-        public override void DatePassed(StateManager _stateManager)
+        public async override Task DatePassed(StateManager _stateManager)
         {
            throw new Exception("Invalid action for this state");
         }
 
-        public override void EnterDetails(StateManager _stateManager, string attendee, int ticketCount)
+        public async override Task EnterDetails(StateManager _stateManager, string attendee, int ticketCount)
         {
            throw new Exception("Invalid action for this state");
         }
 
-        public override void InitState(StateManager _stateManager)
+        public async  override Task InitState(StateManager _stateManager)
         {
             cancelToken = new CancellationTokenSource();
-            StaticFunctions.ProcessBooking(_stateManager, ProcessingComplete, cancelToken);
+            _stateManager.Booking.Status = BookingStatus.Pending;
+            await StaticFunctions.ProcessBooking(_stateManager, ProcessingComplete, cancelToken);
         }
 
-        public void ProcessingComplete(StateManager _stateManager, ProcessingResult result)
+        public async void ProcessingComplete(StateManager _stateManager, ProcessingResult result)
         {
             switch (result)
             {
                 case ProcessingResult.Sucess:
-                    _stateManager.TransitionToState(new BookedState());
+                    await _stateManager.TransitionToState(new BookedState());
                     break;
                 case ProcessingResult.Fail:
-                    _stateManager.TransitionToState(new NewState());
+                    await _stateManager.TransitionToState(new NewState());
                     break;
                 case ProcessingResult.Cancel:
-                    _stateManager.TransitionToState(new ClosedState("Processing Canceled"));
+                    await _stateManager.TransitionToState(new ClosedState("Processing Canceled"));
                     break;
             }
         }   

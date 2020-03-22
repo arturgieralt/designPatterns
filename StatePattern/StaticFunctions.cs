@@ -9,7 +9,7 @@ public enum ProcessingResult { Sucess, Fail, Cancel }
     public class StaticFunctions
     {
         public static ProcessingResult Result = ProcessingResult.Sucess;
-        public static async void ProcessBooking(StateManager _stateManager, Action<StateManager, ProcessingResult> callback, CancellationTokenSource token)
+        public static async Task ProcessBooking(StateManager _stateManager, Action<StateManager, ProcessingResult> callback, CancellationTokenSource token)
         {
 
             try
