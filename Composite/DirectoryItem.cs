@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,14 +24,14 @@ namespace Composite
 
         public override decimal GetSizeInKB()
         {
-            return Elements.Sum(e => GetSizeInKB());
+            return Elements.Sum(e => e.GetSizeInKB());
         }
 
         public FileSystemItem GetItem(string name)
         {
             var elements = new Stack<DirectoryItem>();
 
-            elements.Push(Root);
+            elements.Push(this);
 
             while(elements.Any()){
                 var currentElement = elements.Pop();
@@ -48,7 +49,7 @@ namespace Composite
                     }
 
                     if(item.GetType() == typeof(DirectoryItem)) {
-                        elements.Push(directoryItem);
+                        elements.Push((DirectoryItem)item);
                     }
                 }
             }

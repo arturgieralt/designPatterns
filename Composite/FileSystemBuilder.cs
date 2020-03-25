@@ -52,5 +52,10 @@ namespace Composite
 
             throw new Exception("Directory not found");
         }
+
+        public DirectoryItem Build() 
+        {
+            return Root;
+        }
     }
 }
