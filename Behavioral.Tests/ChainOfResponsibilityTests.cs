@@ -1,8 +1,8 @@
 using Xunit;
-using ChainOfResponsibility;
+using Behavioral.ChainOfResponsibility;
 using Moq;
 
-namespace ChainOfResponsibility.Tests
+namespace Behavioral.Tests
 {
     public class LoggerTests
     {

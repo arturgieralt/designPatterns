@@ -1,6 +1,6 @@
 using System;
 
-namespace ChainOfResponsibility
+namespace Behavioral.ChainOfResponsibility
 {
     public class FileLogger : Logger
     {

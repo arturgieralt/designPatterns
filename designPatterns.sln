@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatePattern", "StatePatter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatePattern.Tests", "StatePattern.Tests\StatePattern.Tests.csproj", "{07175389-3BBD-42EC-8D1A-3A4DB44E8838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfResponsibility", "ChainOfResponsibility\ChainOfResponsibility.csproj", "{6EB5D78F-11F5-4B43-8ED7-1CC668998D32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral", "Behavioral\Behavioral.csproj", "{6EB5D78F-11F5-4B43-8ED7-1CC668998D32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfResponsibility.Tests", "ChainOfResponsibility.Tests\ChainOfResponsibility.Tests.csproj", "{A1C7018B-0EDB-4A56-8DF6-6FD9C6986058}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavioral.Tests", "Behavioral.Tests\Behavioral.Tests.csproj", "{A1C7018B-0EDB-4A56-8DF6-6FD9C6986058}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Composite", "Composite\Composite.csproj", "{9FEA5FB1-1365-45ED-837B-03D730ECA572}"
 EndProject
