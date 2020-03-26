@@ -29,5 +29,33 @@ namespace Composite
                 }
             }
         }
+
+        public static IEnumerable<FileSystemItem> GetItems(this DirectoryItem directoryItem, Predicate<FileSystemItem> predicate)
+        {
+             var elements = new Stack<DirectoryItem>();
+
+            elements.Push(directoryItem);
+
+            while(elements.Any()){
+                var currentElement = elements.Pop();
+
+                if(predicate(currentElement)) 
+                {
+                    yield return currentElement;
+                }
+
+                foreach(var item in currentElement.Elements) {
+
+                    if(predicate(item))
+                    {
+                        yield return item;
+                    }
+
+                    if(item.GetType() == typeof(DirectoryItem)) {
+                        elements.Push((DirectoryItem)item);
+                    }
+                }
+            }
+        }
     }
 }

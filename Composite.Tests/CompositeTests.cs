@@ -1,6 +1,8 @@
 using System;
 using Xunit;
 using FluentAssertions;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Composite.Tests
 {
@@ -40,6 +42,25 @@ namespace Composite.Tests
             .Build();
 
             root.GetItem("file2").Should().NotBeNull();
+
+        }
+
+        [Fact]
+        public void WhenGettingItemsWithSpecificSize_ShouldReturnListOfItems()
+        {
+            var root = builder
+            .AddDirectory("project1")
+                .AddFile("file1", 2100)
+                .AddFile("file2", 3100)
+            .SetCurrentDirectory("root")
+            .AddDirectory("project2")
+                .AddFile("file3", 6100)
+            .Build();
+
+            root
+                .GetItems(item => item.Name.Contains("file"))
+                .Should()
+                .HaveCount(3);
 
         }
     }
