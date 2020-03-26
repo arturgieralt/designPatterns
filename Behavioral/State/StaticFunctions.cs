@@ -1,9 +1,9 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using designPatterns.StatePattern.Base;
+using Behavioral.State.Base;
 
-namespace designPatterns.StatePattern
+namespace Behavioral.State
 {
 public enum ProcessingResult { Sucess, Fail, Cancel }
     public class StaticFunctions

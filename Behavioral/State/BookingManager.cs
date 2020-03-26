@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using designPatterns.StatePattern.Base;
-using designPatterns.StatePattern.BookingStateImplementation;
+using Behavioral.State.Base;
+using Behavioral.State.BookingStateImplementation;
 
-namespace designPatterns.StatePattern
+namespace Behavioral.State
 {
     public class BookingManager
     {

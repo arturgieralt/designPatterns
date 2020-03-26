@@ -1,11 +1,10 @@
 using System;
-using System.Threading;
 using System.Threading.Tasks;
-using designPatterns.StatePattern;
+using Behavioral.State;
 using FluentAssertions;
 using Xunit;
 
-namespace StatePattern.Tests
+namespace Behavioral.Tests
 {
     public class BookingManagerTests
     {

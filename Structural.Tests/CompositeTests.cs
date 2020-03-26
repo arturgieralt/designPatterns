@@ -3,14 +3,15 @@ using Xunit;
 using FluentAssertions;
 using System.Collections.Generic;
 using System.Linq;
+using Structural.Composite;
 
-namespace Composite.Tests
+namespace Structural.Tests
 {
-    public class CompositeTests
+    public class StructuralTests
     {
         private FileSystemBuilder builder;
 
-        public CompositeTests () {
+        public StructuralTests () {
             builder = new FileSystemBuilder("root");
         }
         [Fact]

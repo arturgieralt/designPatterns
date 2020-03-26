@@ -1,4 +1,4 @@
-namespace designPatterns.StatePattern
+namespace Behavioral.State
 {
     public enum BookingStatus {
             New,

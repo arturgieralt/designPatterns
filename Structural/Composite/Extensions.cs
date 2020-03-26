@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 
 
-// extension for .net core composite element 
-namespace Composite
+// extension for .net core Structural element 
+namespace Structural.Composite
 {
     public static class Extensions
     {

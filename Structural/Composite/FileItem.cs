@@ -1,4 +1,4 @@
-namespace Composite
+namespace Structural.Composite
 {
     public class FileItem: FileSystemItem
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Composite
+namespace Structural.Composite
 {
     public class FileSystemBuilder
     {

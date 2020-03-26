@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace designPatterns.StatePattern.Base
+namespace Behavioral.State.Base
 {
     public class StateManager
     {

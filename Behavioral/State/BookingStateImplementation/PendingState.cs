@@ -1,9 +1,9 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using designPatterns.StatePattern.Base;
+using Behavioral.State.Base;
 
-namespace designPatterns.StatePattern.BookingStateImplementation
+namespace Behavioral.State.BookingStateImplementation
 {
     public class PendingState: BaseState
     {
