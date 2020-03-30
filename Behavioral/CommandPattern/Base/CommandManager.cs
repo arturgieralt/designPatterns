@@ -21,7 +21,7 @@ namespace Behavioral.CommandPattern.Base
         {
             if(commands.Count > 0) {
                 var command = commands.Pop();
-                
+
                 if(command.CanUndo())
                 {
                     // this could be better
@@ -42,6 +42,7 @@ namespace Behavioral.CommandPattern.Base
                 if(command.CanUndo())
                 {
                     command.Undo();
+                    // should it be flagged somehow it was done? Wrapped? CommandWithStatus object?
                 }
 
                 undoneCommands.Add(command);

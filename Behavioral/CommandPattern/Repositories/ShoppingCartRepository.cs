@@ -15,6 +15,7 @@ namespace Behavioral.CommandPattern.Repositories
 
         public (Product Product, int Quantity) Get(string articleId)
         {
+
             if (LineItems.ContainsKey(articleId))
             {
                 return LineItems[articleId];
@@ -69,9 +70,16 @@ namespace Behavioral.CommandPattern.Repositories
             }
         }
 
-        public void RemoveAll(string articleId)
+        public void Remove(string articleId)
         {
-            LineItems.Remove(articleId);
+             if (LineItems.ContainsKey(articleId))
+            {
+                DecraseQuantity(articleId);
+            }
+            else
+            {
+                throw new KeyNotFoundException($"Product with article id {articleId} not in cart, please add first");
+            }
         }
     }
 
@@ -80,7 +88,7 @@ namespace Behavioral.CommandPattern.Repositories
         (Product Product, int Quantity) Get(string articleId);
         IEnumerable<(Product Product, int Quantity)> All();
         void Add(Product product);
-        void RemoveAll(string articleId);
+        void Remove(string articleId);
         void IncreaseQuantity(string articleId);
         void DecraseQuantity(string articleId);
     }

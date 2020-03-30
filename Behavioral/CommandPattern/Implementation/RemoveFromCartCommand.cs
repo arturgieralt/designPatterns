@@ -29,8 +29,8 @@ namespace Behavioral.CommandPattern.Implementation
         {
             var lineItem = shoppingCartRepository.Get(product.ArticleId);
 
-            productRepository.IncreaseStockBy(product.ArticleId, lineItem.Quantity);
-            shoppingCartRepository.RemoveAll(product.ArticleId);
+            productRepository.IncreaseStockBy(product.ArticleId, 1);
+            shoppingCartRepository.Remove(product.ArticleId);
         }
 
         public bool CanUndo()
