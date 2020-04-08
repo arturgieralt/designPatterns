@@ -19,4 +19,10 @@
     <ProjectReference Include="..\Structural\Structural.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="People.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
